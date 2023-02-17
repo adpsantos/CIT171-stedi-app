@@ -157,7 +157,7 @@ return(
        padding: 10
      },
      title:{
-      textAlign:"center"
-      marginTop: 50,
-    },   
+        textAlign:"center",
+        marginTop:50
+      }
  })
