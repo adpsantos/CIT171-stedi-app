@@ -6,6 +6,7 @@ import OnboardingScreen from './screens/OnboardingScreen';
 import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -158,6 +159,8 @@ return(
      },
      title:{
         textAlign:"center",
-        marginTop:50
+        marginTop:60,
+        fontSize: 19,
+        color:'#A0CE4E'
       }
  })
