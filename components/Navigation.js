@@ -162,7 +162,7 @@ export default function Navigation (props) {
             />
             <Tab.Screen name="TabCounter" 
             // component={counterStackScreen}
-            children={()=><CounterStackScreen/>}
+            children={()=><ProfileStackScreen setloggedInState={props.setloggedInState}/>}
             options={{
                 // tabBarColor:'pink',
                    tabBarLabel: 'Counter',
