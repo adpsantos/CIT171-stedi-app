@@ -64,14 +64,17 @@ const CounterStackScreen = () =>{
     );
 }
 
-const ProfileStackScreen = () =>{
+const ProfileStackScreen = (props) =>{
     return(
      <Stack.Navigator
      screenOptions= {{
         headerStyle:{backgroundColor:'#A0CE4E'},
         headerTintColor:'white'}}>
 
-        <Stack.Screen name="Profile" component={Profile} options={{
+        <Stack.Screen name="Profile" 
+        //component={Profile} 
+        children={() =><Profile setLoggedInState={props.setLoggedInState}/>}
+        options={{
              headerTitleAlign: "center",
              headerTitleStyle:{
                fontWeight:'bold', 
@@ -162,7 +165,7 @@ export default function Navigation (props) {
             />
             <Tab.Screen name="TabCounter" 
             // component={counterStackScreen}
-            children={()=><ProfileStackScreen setloggedInState={props.setloggedInState}/>}
+            children={()=><CounterStackScreen/>}
             options={{
                 // tabBarColor:'pink',
                    tabBarLabel: 'Counter',
@@ -172,7 +175,8 @@ export default function Navigation (props) {
                   }}
             />
             <Tab.Screen name="TabProfile" 
-            component={ProfileStackScreen}
+            //component={ProfileStackScreen}
+            children={()=><ProfileStackScreen setLoggedInState={props.setLoggedInState}/>}
             options={{
                 // tabBarColor:'pink',
                    tabBarLabel: 'Profile',
