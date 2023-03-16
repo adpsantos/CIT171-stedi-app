@@ -7,7 +7,7 @@ import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { color } from 'react-native-reanimated';
-
+import * as LocalAuthentication from 'expo-local-authentication'
 
 
 
@@ -24,6 +24,18 @@ const App = () =>{ // arrow function
   const [phoneNumber,setPhoneNumber] = React.useState("");
   const [oneTimePassword, setOneTimePassword] = React.useState("");
   const [homeTodayScore, setHomeTodayScore] = React.useState(0);
+  const [isBiometricSupported, setIsBiometricSupported] = React.useState(false);
+  const [isBiometricEnrolled, setIsBiometricEnrolled] = React.useState(false);
+  
+useEffect(() => {
+  (async() => {
+    const compatible = await LocalAuthentication.hasHardwareAsync();
+    setIsBiometricSupported(compatible);
+
+    const enrolled = await LocalAuthentication.isEnrolledAsync();
+    setIsBiometricEnrolled(enrolled);
+  })();
+});
 
   useEffect(()=>{//this is code that has to run before we show app screen
    const getSessionToken = async()=>{
@@ -58,13 +70,34 @@ return(
     return (
       <View>
         <Text style={styles.title}>Welcome Back</Text>
+
+        <Text> {isBiometricSupported ? 'Your device is compatible with Biometrics'
+        : 'Your device is not compatible with Biometrics'}
+        </Text>
+
+        <Text> {isBiometricEnrolled ? 'You have a fingerprint or face Biometric'
+        : 'You have not saved a fingerprint or face Biometric'}
+        </Text>
+
         <TextInput 
           value={phoneNumber}
           onChangeText={setPhoneNumber}
           style={styles.input}  
-          placeholderTextColor='#4251f5' 
+          placeholderTextColor='#FF69B4' 
           placeholder='Cell Phone'>          
         </TextInput>
+        <Button
+          title='Biometric Authentication'
+          style={styles.button}
+          onPress={async ()=>{
+            const biometricAuth = await LocalAuthentication.authenticateAsync({
+              promptMessage: 'Login with Biometrics',
+              disableDeviceFallback: true,
+              cancelLabel: 'Cancel'
+          })
+          console.log ('biometric Auth', biometricAuth)
+        }}
+        ></Button>
         <Button
           title='Send'
           style={styles.button}
@@ -92,7 +125,7 @@ return(
         value={oneTimePassword}
         onChangeText={setOneTimePassword}
         style={styles.input}  
-        placeholderTextColor='#4251f5' 
+        placeholderTextColor='#FF69B4' 
         placeholder='One Time Password'   
         keyboardType='numeric'>
       </TextInput>
@@ -161,7 +194,7 @@ return(
         textAlign:"center",
         marginTop:60,
         fontSize: 20,
-        color:'#A0CE4E',
+        color:'#FF69B4',
         fontWeight:'bold'
-      }
+      }  
  })
