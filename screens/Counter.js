@@ -190,7 +190,7 @@ setCounter(3);
 
 const shareProgress = async() =>{
   const shareOptions = {
-    message: 'This is a test'
+    message: 'https://dev.stedi.me/timer.html#'
   }
   try{
     const shareResponse = await Share.share(shareOptions)
@@ -298,7 +298,18 @@ console.log('Error', error)
 //circula process bar
 console.log(stepCount, "stepCount");
 
-
+const myCustomerShare = async() =>{
+  const shareOptions = {
+    message: 'http://stedibalance.com'
+  }
+  try{
+    const shareResponse = await Share.share(shareOptions)
+    console.log(shareResponse);
+    }
+    catch(error){
+console.log('Error', error)
+    }
+  }
 
 if (currentScreen === 'counter'){
 
@@ -327,6 +338,13 @@ elevation: 4}}>
     >
       <Text>{subscription ? 'Stop' : 'GO'}</Text>
      </TouchableOpacity>
+  <TouchableOpacity
+     onPress={myCustomerShare}
+      style={styles.spotter}
+    >
+      <Text>{'Add Spotter'}</Text>
+     </TouchableOpacity>
+
 
      </CardContent>
      <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar}/>
@@ -433,6 +451,18 @@ const styles = StyleSheet.create({
 
   button: {
     marginTop: 15,
+    marginBottom: 20,
+    width: 170,
+    height: 38,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: '#A0CE4E',
+    marginLeft:50
+  },
+  spotter: {
+    marginTop: -15,
     marginBottom: 20,
     width: 170,
     height: 38,
