@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
      marginRight:15,
      fontSize: 18,
       height: 44,
-      color: '#0000EE',
+      color: '#FF69B4',
     }
   });

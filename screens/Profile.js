@@ -97,7 +97,7 @@ elevation: 4}}>
     <Text style={{marginTop:10,marginBottom:10,fontWeight: 'bold'}}>{userName}</Text>
 
     <Text style={{marginTop:20,marginBottom:2}}>This Week's progress</Text>
-{/* <BarChart barColor='green' data={data} horizontalData={horizontalData} /> */}
+{/* <BarChart barColor='#FF69B4' data={data} horizontalData={horizontalData} /> */}
      <View style={{ marginTop: 50 }}>
       <Button onPress={myCustomerShare} title="Share" />
       <Button onPress={()=>{

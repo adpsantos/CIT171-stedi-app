@@ -49,7 +49,7 @@ const CounterStackScreen = () =>{
     return(
      <Stack.Navigator
      screenOptions= {{
-        headerStyle:{backgroundColor:'#A0CE4E'},
+        headerStyle:{backgroundColor:'#FF69B4'},
         headerTintColor:'white'}}
      >
         <Stack.Screen name="Counter" component={Counter} options={{

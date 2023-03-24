@@ -114,7 +114,7 @@ export default Help;
   alignItems: 'center',
   padding: 10,
   borderRadius: 5,
-  backgroundColor: '#A0CE4E',
+  backgroundColor: 'FF69B4',
  tintColor: 'white',
   marginLeft: 10,
   marginRight: 10,

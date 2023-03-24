@@ -300,7 +300,7 @@ console.log(stepCount, "stepCount");
 
 const myCustomerShare = async() =>{
   const shareOptions = {
-    message: 'http://stedibalance.com'
+    message:'https://dev.stedi.me/timer.html#' +token.current,
   }
   try{
     const shareResponse = await Share.share(shareOptions)
@@ -328,7 +328,7 @@ elevation: 4}}>
    subtitle={'Steps'}
    title={stepCount}
    />
-   <FontAwesome5  name='redo' color='red' size={20} style={{ alignSelf: 'flex-end', marginTop:30, paddingRight:15, position: 'absolute'}} />
+   <FontAwesome5  name='redo' color='#FF69B4' size={20} style={{ alignSelf: 'flex-end', marginTop:30, paddingRight:15, position: 'absolute'}} />
    <Image source={exerciseImg}  style={styles.image} ></Image>
 <CardContent>
   <Text style={styles.text}>Step Quickly</Text>
@@ -347,7 +347,7 @@ elevation: 4}}>
 
 
      </CardContent>
-     <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar}/>
+     <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#FF69B4'} style={styles.bar}/>
 </Card>
       </View>
   );
@@ -357,7 +357,7 @@ elevation: 4}}>
 else if (currentScreen === 'break'){
   return(
     <View style={styles.screen}> 
-    <Card style={{backgroundColor:'#D9F2AD',  borderRadius: 10, marginTop: 20, marginBottom:20 ,width: 320, shadowColor: "#000",
+    <Card style={{backgroundColor:'#FF69B4',  borderRadius: 10, marginTop: 20, marginBottom:20 ,width: 320, shadowColor: "#000",
 shadowOffset: {
 	width: 0,
 	height: 2,
@@ -378,7 +378,7 @@ elevation: 4}}>
      style={{marginTop:50,  width: 200, height: 35, borderRadius: 100, backgroundColor: 'gray', alignItems: 'center', marginLeft:50, marginTop:120, padding:7}}>
      <Text>{subscription ? 'Stop' : 'GO'}</Text>
     </TouchableOpacity> */}
-    <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#A0CE4E'} style={styles.bar2}/>
+    <ProgressBar progress={(stepCount * 0.50/30) + (completionCount * 0.50)} width={300} height={25} color={'#FF69B4'} style={styles.bar2}/>
     </CardContent>
 </Card>
 
@@ -399,17 +399,17 @@ shadowRadius: 2.62,
 
 elevation: 4 }}>
  <TouchableOpacity onPress={shareProgress} style={{zIndex: 1 }}>
- <FontAwesome5 name='share-alt' color='#B4B4B4' size={20} style={{ marginTop:20,paddingLeft:280, position: 'absolute' }}/>
+ <FontAwesome5 name='share-alt' color='#FF69B4' size={20} style={{ marginTop:20,paddingLeft:280, position: 'absolute' }}/>
  </TouchableOpacity>
     <CardContent style={{marginTop:60, marginLeft:20}}>
     <Speedometer width ={250} 
    value={score} 
    max={100}
    min={-100} >
-  <Background color='#A0CE4E' />
+  <Background color='#FF69B4' />
   <Arc/>
-  <Needle circleColor='#A0CE4E'/>
-  <Progress color='#A0CE4E' />
+  <Needle circleColor='#FF69B4'/>
+  <Progress color='#FF69B4' />
   <Marks/>
   <Indicator/>
 </Speedometer>
@@ -424,7 +424,7 @@ subtitle={messageOutcome()}
       style={styles.button2}>
         <Text>close</Text>
       </TouchableOpacity>
-      <Text  style={{textAlign:'center', color: '#0000EE'}} onPress={() => Linking.openURL(url)}>More info</Text>
+      <Text  style={{textAlign:'center', color: '#FF69B4'}} onPress={() => Linking.openURL(url)}>More info</Text>
      </CardContent>
     </Card>
          </View>
@@ -458,7 +458,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 100,
-    backgroundColor: '#A0CE4E',
+    backgroundColor: '#FF69B4',
     marginLeft:50
   },
   spotter: {
@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 100,
-    backgroundColor: '#A0CE4E',
+    backgroundColor: '#FF69B4',
     marginLeft:50
   },
   text:{
@@ -490,7 +490,7 @@ marginBottom: 2
   
   },
   bar2:{
-    marginLeft: -5
+    marginLeft: -5,
     
     },
     button2: {
@@ -502,7 +502,7 @@ marginBottom: 2
       alignItems: 'center',
       padding: 10,
       borderRadius: 100,
-      backgroundColor: '#A0CE4E',
+      backgroundColor: '#FF69B4',
       marginLeft:50
     },
 

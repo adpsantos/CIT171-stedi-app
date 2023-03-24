@@ -187,7 +187,7 @@ return(
      },
      button: {
        alignItems: "center",
-       backgroundColor: "#DDDDDD",
+       backgroundColor: "#FF69B4",
        padding: 10
      },
      title:{
